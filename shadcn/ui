@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terminal Emulator</title>
+    <style>
+        body {
+            font-family: monospace;
+            background-color: #222;
+            color: #eee;
+            margin: 0;
+            padding: 0;
+        }
+
+        .terminal {
+            width: 800px;
+            height: 600px;
+            margin: 20px auto;
+            border: 1px solid #555;
+            background-color: #111;
+            overflow: auto;
+            padding: 10px;
+        }
+
+        .command-line {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .command-line input {
+            background-color: transparent;
+            border: none;
+            color: #eee;
+            font-family: monospace;
+            font-size: 16px;
+            padding: 5px;
+            flex-grow: 1;
+        }
+
+        .command-line input:focus {
+            outline: none;
+        }
+
+        .run-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+
+        .output-area {
+            color: #eee;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+    <div class="terminal">
+        <div class="output-area"></div>
+        <div class="command-line">
+            <input type="text" placeholder="$ " id="command-input">
+            <button class="run-button" onclick="runCommand()">Run</button>
+            <button class="run-button" onclick="runPythonFile()">Run Python</button>
+        </div>
+    </div>
+
+    <script>
+        const outputArea = document.querySelector('.output-area');
+        const commandInput = document.getElementById('command-input');
+
+        function runCommand() {
+            const command = commandInput.value;
+            outputArea.innerHTML += `\n$ ${command}\n`;
+            // Implement your command execution logic here
+            // ...
+            commandInput.value = '';
+        }
+
+        function runPythonFile() {
+            // Implement your Python file execution logic here
+            // ...
+        }
+    </script>
+</body>
+</html>
